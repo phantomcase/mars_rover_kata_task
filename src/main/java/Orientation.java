@@ -12,12 +12,13 @@ public class Orientation {
         int targetDegree = degree+inputDegree;
         int result = targetDegree%360;
         if(result<0){
-            degree+=360;
+            result+=360;
         }
+        degree=result;
         return degree;
     }
     public int getDegree(){
-        return degree;
+        return this.degree;
     }
     public void setDirection(String direction){
         switch (direction){
@@ -40,10 +41,13 @@ public class Orientation {
                 break;
             case 90:
                 result = "E";
+                break;
             case 180:
                 result = "S";
+                break;
             case 270:
                 result = "W";
+                break;
         }
         return result;
     }

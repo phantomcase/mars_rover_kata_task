@@ -17,14 +17,16 @@ public class Rover implements BlockItem{
             String singleCommand = movements[i];
             switch (singleCommand){
                 case "L":
-                    this.orientation.addDegree(-90);
+                    orientation.addDegree(-90);
                     break;
                 case "R":
-                    this.orientation.addDegree(90);
+                    orientation.addDegree(90);
                     break;
                 case "M":
-                    Double xForce = Math.asin(Math.toRadians(this.orientation.getDegree()))*moveDistant;
-                    Double yForce = Math.acos(Math.toRadians(this.orientation.getDegree()))*moveDistant;
+                    int tmpDegree = orientation.getDegree();
+                    double tmpRadions = Math.toRadians(tmpDegree);
+                    Double xForce = Math.sin(tmpRadions);
+                    Double yForce = Math.cos(tmpRadions);
                     Position newPosition = plateau.checkMovementAvailable(this.position, xForce, yForce);
                     if(newPosition == null){
 //                        System.out.println("Rover "+uuid+" Movement blocked by object or hitted the Edge");
@@ -34,11 +36,10 @@ public class Rover implements BlockItem{
                     }
                     break;
             }
-            String[] resultArray = { String.valueOf((int)this.position.x), String.valueOf((int)this.position.y), this.getOrientation().getDirection() };
-            return String.join(" ", resultArray);
-        }
 
-        return "";
+        }
+        String[] resultArray = { String.valueOf((int)this.position.x), String.valueOf((int)this.position.y), this.getOrientation().getDirection() };
+        return String.join(" ", resultArray);
     }
 
     @Override

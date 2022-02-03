@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MarsCommander {
-    private List<Rover> roverList;
     private Plateau plateau;
     public String execute(String command){
         ActionCommands currentCommands = new ActionCommands(command);
@@ -22,9 +21,5 @@ public class MarsCommander {
         }else{
             return "Not a Valid command!!!";
         }
-    }
-    private String roverExecute(Rover rover, String command){
-        String resultString = "";
-        return resultString;
     }
 }
