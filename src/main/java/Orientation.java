@@ -27,10 +27,13 @@ public class Orientation {
                 break;
             case "E":
                 degree = 90;
+                break;
             case "S":
                 degree = 180;
+                break;
             case "W":
                 degree = 270;
+                break;
         }
     }
     public String getDirection(){

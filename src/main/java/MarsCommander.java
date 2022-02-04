@@ -15,6 +15,7 @@ public class MarsCommander {
             roverCommands.forEach((roverCommand) -> {
                 Rover tmpRover = new Rover();
                 String moveResult = tmpRover.execute(roverCommand,this.plateau);
+                plateau.addBlockItem(tmpRover);
                 result.add(moveResult);
             });
             return String.join("\n", result);
