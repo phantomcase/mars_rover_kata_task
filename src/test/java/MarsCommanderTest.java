@@ -1,10 +1,12 @@
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
+@DisplayName("Mars Commander Test")
 class MarsCommanderTest {
     @Test
+    @DisplayName("Assignment Test")
     void assignmentTest() {
         MarsCommander marsCommander = new MarsCommander();
         assertEquals("1 3 N\n" +
@@ -14,5 +16,11 @@ class MarsCommanderTest {
                 "3 3 E\n" +
                 "MMRMMRMRRM"));
 
+    }
+    @Test
+    @DisplayName("UnValid Command Test")
+    void unValidCommandTest(){
+        MarsCommander marsCommander = new MarsCommander();
+        assertEquals("Not a Valid command!!!",marsCommander.execute("ABCDEFG"));
     }
 }

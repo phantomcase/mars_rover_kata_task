@@ -25,8 +25,8 @@ public class Rover implements BlockItem{
                     int tmpDegree = orientation.getDegree();
 //                    double tmpRadions = degToRadians(tmpDegree);
                     double tmpRadions = Math.toRadians(tmpDegree);
-                    double xForce = Math.sin(tmpRadions);
-                    double yForce = Math.cos(tmpRadions);
+                    double xForce = Math.sin(tmpRadions)*moveDistant;
+                    double yForce = Math.cos(tmpRadions)*moveDistant;
                     Position newPosition = plateau.checkMovementAvailable(this.position, xForce, yForce);
                     if (newPosition == null) {
 //                        System.out.println("Rover "+uuid+" Movement blocked by object or hitted the Edge");

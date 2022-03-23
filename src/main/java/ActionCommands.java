@@ -8,9 +8,9 @@ import java.util.regex.Pattern;
 public class ActionCommands {
     private boolean valid = true;
     private Point plateauSize;
-    private List<RoverCommand> roverCommands = new ArrayList<>();
+    final List<RoverCommand> roverCommands = new ArrayList<>();
     public ActionCommands(String command) {
-        String commands[] = command.split("\\r?\\n");
+        String[] commands = command.split("\\r?\\n");
 
         String[] roverCommandAry = Arrays.copyOfRange(commands, 1, commands.length);
 
@@ -23,8 +23,7 @@ public class ActionCommands {
             plateauSize = new Point(Integer.parseInt(plateauSizeMatcher.group(1)), Integer.parseInt(plateauSizeMatcher.group(2)));
         }
 
-        int roverCommandsLength = roverCommandAry.length;
-        Boolean isEvenLines = roverCommandAry.length % 2 == 0;
+        boolean isEvenLines = roverCommandAry.length % 2 == 0;
         valid = valid && isEvenLines;
         if(isEvenLines){
             for(int i = 0; i < roverCommandAry.length/2; i++){
